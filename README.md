@@ -13,7 +13,7 @@ This repository is made for **practice, curiosity, and fun**
 ---
 
 # Requirements
-**Before running the code, make sure you have:
+**Before running the code, make sure you have:**
 
 - **.NET SDK** (7.0 or later)
 - **Microsoft Quantum Development Kit (QDK)**
