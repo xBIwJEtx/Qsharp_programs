@@ -1,4 +1,4 @@
-﻿namespace QuantumHello {
+namespace QuantumHello {
     import Std.Arrays.ForEach;
     import Std.Arrays.Most;
     open Microsoft.Quantum.Convert;
@@ -7,14 +7,22 @@
     open Microsoft.Quantum.Intrinsic;
     open Microsoft.Quantum.Arrays;
 
+    function powD(base : Double, exp : Int) : Double {
+        mutable result = 1.0;
+        for i in 1..exp {
+            set result *= base;
+        }
+        return result;
+    }
+
     @EntryPoint()
     operation Main() : Unit {
-        let N = 4; //Numbers of Qubit. you can change it here
-        use Qubits = Qubit[N];
+        let N = 4;
+        use Qubits = Qubit[N];  
         ApplyToEach(H, Qubits);
 
-        let target = [One, One, One, One]; //target you want to find
-        for i in 0..Floor((3.14/2.0)*Sqrt(2.0 ^ IntAsDouble(N)))-1 {
+        let target = [One, One, One, One];
+        for i in 0..Floor((3.141592/4.0)*Sqrt(powD(2.0, N)))-1 {
             Oracle(Qubits, target);
             Diffusion(Qubits);
         }
@@ -30,7 +38,7 @@
         within {
             for i in 0..Length(Qubits)-1 {
                 if target[i] == Zero {
-                    X(Qubits[i])
+                    X(Qubits[i]);
                 }
             }
         }
@@ -39,7 +47,7 @@
         }
     }
 
-    operation Diffusion(Qubits : Qubit[]) : Unit{
+    operation Diffusion(Qubits : Qubit[]) : Unit is Adj + Ctl{
         within {
             for i in 0..Length(Qubits)-1 {
                 H(Qubits[i]);
@@ -55,6 +63,4 @@
     }
 
 }
-
-
 
