@@ -9,11 +9,11 @@
 
     @EntryPoint()
     operation Main() : Unit {
-        let N = 4;
+        let N = 4; //Numbers of Qubit. you can change it here
         use Qubits = Qubit[N];
         ApplyToEach(H, Qubits);
 
-        let target = [One, One, One, One];
+        let target = [One, One, One, One]; //target you want to find
         for i in 0..Floor((3.14/2.0)*Sqrt(2.0 ^ IntAsDouble(N)))-1 {
             Oracle(Qubits, target);
             Diffusion(Qubits);
@@ -55,5 +55,6 @@
     }
 
 }
+
 
 
