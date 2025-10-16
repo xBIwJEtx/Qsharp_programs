@@ -8,6 +8,7 @@ This repository is made for **practice, curiosity, and fun**
 # List of Project
 
 - Quantum random number generation
+- Grover's Algorithm for N Qubits
 - More in the future
 
 ---
