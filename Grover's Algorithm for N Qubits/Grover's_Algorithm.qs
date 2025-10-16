@@ -14,7 +14,7 @@
         ApplyToEach(H, Qubits);
 
         let target = [One, One, One, One];
-        for i in 0..Floor((3.14/2.0)*Sqrt(IntAsDouble(N)))-1 {
+        for i in 0..Floor((3.14/2.0)*Sqrt(2.0 ^ IntAsDouble(N)))-1 {
             Oracle(Qubits, target);
             Diffusion(Qubits);
         }
@@ -55,4 +55,5 @@
     }
 
 }
+
 
