@@ -17,11 +17,11 @@ namespace QuantumHello {
 
     @EntryPoint()
     operation Main() : Unit {
-        let N = 4;
+        let N = 5;
         use Qubits = Qubit[N];  
         ApplyToEach(H, Qubits);
 
-        let target = [One, One, One, One];
+        let target = [Zero, Zero, One, Zero, One];
         for i in 0..Floor((3.141592/4.0)*Sqrt(powD(2.0, N)))-1 {
             Oracle(Qubits, target);
             Diffusion(Qubits);
@@ -63,4 +63,5 @@ namespace QuantumHello {
     }
 
 }
+
 
